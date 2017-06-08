@@ -9,6 +9,6 @@ if User.count < 10
 if Question.count < 10
     5.times do
       question = {}
-      question[:question] = Faker::Internet.user_name(5..10)
+      question[:question] = "knock kock"
   end
 end

@@ -23,7 +23,7 @@ get '/users/:id' do
     erb :'users/show'
   else
     @errors = ["Something went wrong ><"]
-    erb: :'users/index'
+    erb :'users/index'
   end
 end
 

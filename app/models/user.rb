@@ -1,5 +1,6 @@
 require 'bcyrpt'
 class User < ActiveRecord::Base
+  has_many :questions
   def password
     @password ||= BCrypt::Password.new(password_hash)
   end

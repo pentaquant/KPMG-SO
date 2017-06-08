@@ -5,9 +5,4 @@ if User.count < 10
       user[:username] = Faker::Internet.user_name(5..10)
       user[:password_hash] = "password"
   end
-if Question.count < 10
-    5.times do
-      question = {}
-      question[:question] = "Knock knock"
-  end
 end

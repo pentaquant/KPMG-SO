@@ -14,3 +14,9 @@ post '/questions' do
   end
 
 end
+
+delete '/questions/:id' do
+  @question = Question.find(params[:id])
+  @question.destroy
+  redirect '/questions'
+end

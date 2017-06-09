@@ -21,14 +21,24 @@ if Answer.count < 10
     answer = {}
     answer[:answer] = Faker::Lorem.paragraph
     answer[:user_id] = rand(1..10)
+    answer[:question_id] = rand(1..10)
     Answer.create(answer)
   end 
 end
-if Comment.count < 10
+if Comment.count < 30
   10.times do
     comment = {}
     comment[:body] = Faker::Lorem.sentence
     comment[:user_id] = rand(1..10)
+    comment[:question_id] = rand(1..10)
+    Comment.create(comment)
+  end 
+endif Comment.count < 30
+  10.times do
+    comment = {}
+    comment[:body] = Faker::Lorem.sentence
+    comment[:user_id] = rand(1..10)
+    comment[:answer_id] = rand(1..10)
     Comment.create(comment)
   end 
 end

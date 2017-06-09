@@ -5,6 +5,8 @@ class CreateComments < ActiveRecord::Migration
       t.integer :commentable_id
       t.string :commentable_type
       t.references :user
+      t.references :questions
+      t.references :answers
 
       t.timestamps
     end

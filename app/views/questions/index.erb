@@ -19,7 +19,7 @@
       <td class='body'><%= question.body %></td>
       <td class='username'><%= question.username %></td>
       <td class='posted-at'><%= question.created_at %></td>
-      <td class='points'><%= question.point_count %></td>
+      <td class='points'><%= question.vote_count %></td>
     </tr>
     <a class="delete" href='/questions/<%= question.id %>'></a>
 <% end %>

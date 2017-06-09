@@ -5,7 +5,7 @@
   </form>
   <h2><a href='/questions/<%= @question.id %>'><%= @question.title %></a></h2>
   <p>
-    <span class='points'><%= @question.point_count %></span>
+    <span class='points'><%= @question.vote_count %></span>
     <span class='username'><%= @question.username %></span>
     <span class='timestamp'><%= @question.created_at %></span>
     <a class="delete" href='/@questions/<%= @question.id %>'></a>

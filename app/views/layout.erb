@@ -7,6 +7,8 @@
     See: http://necolas.github.com/normalize.css/
   -->
   <link rel="stylesheet" href="/css/normalize.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <!--
     application.css is where you put your styles
@@ -19,16 +21,39 @@
   <title></title>
 </head>
 <body>
-  <div class="container">
-      <p><%= @user %></p>
-      <a href="/">Home</a>
-      <% if @user %>
-        <a href="/users/#{@user.id}"></a>
-        <% else %>
-        <a href="/sessions/new">Login</a>
-        <a href="/users/new">Register</a>
-      <% end %>
-  </div>
-  <%= yield %>
+
+<%if !logged_in?%>
+  <nav class='navbar navbar-inverse'>
+    <div class='container-fluid'>
+      <div class='navbar-header'>
+        <a class='navbar-brand' href='/'>DBC Overflow</a>
+      </div>
+
+     <ul class='nav navbar-nav' style='list-style: none' >
+
+
+       <li class=''><a href='/sessions/new'>login</a></li>
+        <li class=''><a href='/users/new'>register</a></li>
+      </ul>
+    </div>
+  </nav>
+<%else%>
+  <nav class='navbar navbar-inverse'>
+    <div class='container-fluid'>
+      <div class='navbar-header'>
+        <a class='navbar-brand' href='/'>DBC Overflow</a>
+      </div>
+      <ul class='' style='list-style: none' >
+        <li class='invisible'>
+        <form method = 'delete' action = '/sessions/logout'>
+          <input type= 'hidden' name = '_method' value='delete'>
+          <button type = 'submit'> Log out </button>
+        </form>
+     </ul>
+    </div>
+  </nav>
+ <%end%>
+
+<%= yield %>
 </body>
 </html>

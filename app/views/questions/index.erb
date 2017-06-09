@@ -1,0 +1,27 @@
+<div class="container">
+<h1>Question Posting</h1>
+<h3>questions</h3>
+<table style="width:auto; border: 1px solid black;
+    ">
+      <tr>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Username</th>
+        <th>Posted At</th>
+        <th>Vote Count</th>
+      </tr>
+<% @questions.each do |question| %>
+  <form method="question" action='/questions/<%= question.id %>/vote' class="inline">
+    <button type="submit" name="submit_param" value="submit_value" class="upvote-button"></button>
+  </form>
+    <tr id="<%= question.id %>">
+      <td class='title'><%= question.title %><a href='/questions/<%= question.id %>'>show</a></td>
+      <td class='body'><%= question.body %></td>
+      <td class='username'><%= question.username %></td>
+      <td class='posted-at'><%= question.created_at %></td>
+      <td class='points'><%= question.vote_count %></td>
+    </tr>
+    <a class="delete" href='/questions/<%= question.id %>'></a>
+<% end %>
+</table>
+</div>

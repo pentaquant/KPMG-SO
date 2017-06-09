@@ -30,15 +30,10 @@ if Comment.count < 30
     comment = {}
     comment[:body] = Faker::Lorem.sentence
     comment[:user_id] = rand(1..10)
-    comment[:question_id] = rand(1..10)
-    Comment.create(comment)
-  end 
-endif Comment.count < 30
-  10.times do
-    comment = {}
-    comment[:body] = Faker::Lorem.sentence
-    comment[:user_id] = rand(1..10)
-    comment[:answer_id] = rand(1..10)
+    comment[:commentable_id] = rand(1..10)
+    comment[:commentable_type] = ["Question", "Answer"].sample
+
     Comment.create(comment)
   end 
 end
+

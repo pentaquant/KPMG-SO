@@ -18,6 +18,16 @@
   <title></title>
 </head>
 <body>
+  <div class="container">
+      <p><%= @user %></p>
+      <a href="/">Home</a>
+      <% if @user %>
+        <a href="/users/#{@user.id}"></a>
+        <% else %>
+        <a href="/sessions/new">Login</a>
+        <a href="/users/new">Register</a>
+      <% end %>
+  </div>
   <%= yield %>
 </body>
 </html>

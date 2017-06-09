@@ -1,5 +1,8 @@
 <article class="question">
-    <h3>Create a Question.</h3>
-
+    <h3>Create a question.</h3>
+    <form method="post" action="/questions">
+    <label><b>Title: </b></label>
+    <input type="text" placeholder="Title" name="post[title]" required>
+    <br />
     <%= erb :'_qac'  , :layout => false  %>
 </article>

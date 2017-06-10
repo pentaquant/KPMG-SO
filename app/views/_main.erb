@@ -1,0 +1,17 @@
+<h3>Questions</h3>
+<% @questions.each do |question| %>
+  <div class="question-container">
+    <article id="<%= question.id %>">
+    <form method="question" action='/questions/<%= question.id %>/vote' class="inline">
+      <button type="submit" name="submit_param" value="submit_value" class="upvote-button">^</button>
+    </form>
+    <h2><a href='/questions/<%= question.id %>'><%= question.title %></a></h2>
+    <a class="delete" href='/questions/<%= question.id %>'>X</a>
+    <p>
+      <span class='Body'><%= question.body %></span>
+      <span class='Body'><strong>Posted At:</strong> <%= question.updated_at %></span>
+    </p>
+    </article>
+  </div>
+<% end %>
+</table>

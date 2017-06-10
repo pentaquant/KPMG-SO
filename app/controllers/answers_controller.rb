@@ -26,8 +26,8 @@ post '/answers/comments' do
   @answer = Answer.find(params[:id])
   @answer.comments << Comment.new(params[post[:comment]])
   if @answer.comments.save
-
-    erb :"new_answer_comment"
+    
+    erb :"answers/new_answer_comment"
   else
 
     erb :'comments/new'

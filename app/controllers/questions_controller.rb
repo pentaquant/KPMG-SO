@@ -34,7 +34,7 @@ post '/questions/comments' do
   @question.comments << Comment.new(params[post[:comment]])
   if @question.comments.save
 
-    erb :"new_question_comment"
+    erb :"answers/new_question_comment"
   else
 
     erb :'comments/new'

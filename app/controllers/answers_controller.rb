@@ -27,7 +27,7 @@ post '/answers/comments' do
   @answer.comments << Comment.new(params[post[:comment]])
   if @answer.comments.save
 
-    redirect "/answers/#{@answer.id}"
+    erb :"new_answer_comment"
   else
 
     erb :'comments/new'

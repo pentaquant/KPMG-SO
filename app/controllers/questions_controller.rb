@@ -1,6 +1,5 @@
 get '/questions' do
   @questions = Question.all
-
   erb :'questions/index'
 end
 
@@ -35,7 +34,7 @@ post '/questions/comments' do
   @question.comments << Comment.new(params[post[:comment]])
   if @question.comments.save
 
-    redirect "/questions/#{@question.id}"
+    erb :"new_question_comment"
   else
 
     erb :'comments/new'

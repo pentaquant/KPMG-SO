@@ -1,12 +1,70 @@
-<div class="container">
+<h2>Question</h2>
+<div class="container question">
 <article id="<%= @question.id %>">
   <form method="question" action='/questions/<%= @question.id %>/vote' class="inline">
-    <button type="submit" name="submit_param" value="submit_value" class="upvote-button">^</button>
-  </form>
+      <button type="submit" name="submit_param" value="submit_value" class="upvote-button">⬆</button>
+    </form>
+    <form method="question" action='/questions/<%= @question.id %>/vote' class="inline">
+      <button type="submit" name="submit_param" value="submit_value" class="upvote-button">⬇</button>
+    </form>
   <h2><%= @question.title %></a></h2>
   <p>
     <span class='Body'><%= @question.body %></span>
     <span class='Body'><strong>Posted At:</strong> <%= @question.updated_at %></span>
   </p>
+  <ul class="container question-comments">
+  <h2>Comments <%= @question.comments.count %></h2>
+  <% @question.comments.each do |comment| %>
+    <li id="<%= comment.id %>">
+        <form method="comment" action='/comments/<%= comment.id %>/vote' class="inline">
+            <button type="submit" name="submit_param" value="submit_value" class="upvote-button">⬆</button>
+          </form>
+        <form method="comment" action='/comments/<%= comment.id %>/vote' class="inline">
+            <button type="submit" name="submit_param" value="submit_value" class="upvote-button">⬇</button>
+        </form>
+        <span class='Body'><%= comment.body %></span>
+        <span class='Body'><strong>Posted At:</strong> <%= comment.updated_at %></span>
+    </li>
+  <% end %>
+  </ul >
 </article>
+</div>
+
+<div class="container answers">
+<h2>Answers <%= @question.answers.count %> </h2>
+<% @question.answers.each do |answer| %>
+
+  <article id="<%= answer.id %>">
+    <form method="answer" action='/answers/<%= answer.id %>/vote' class="inline">
+      <button type="submit" name="submit_param" value="submit_value" class="upvote-button">⬆</button>
+    </form>
+    <form method="answer" action='/answers/<%= answer.id %>/vote' class="inline">
+      <button type="submit" name="submit_param" value="submit_value" class="upvote-button">⬇</button>
+    </form>
+    <p>
+      <span class='Body'><%= answer.answer %></span>
+      <span class='Body'><strong>Posted At:</strong> <%= answer.updated_at %></span>
+    </p>
+  </article>
+  <ul>
+
+  <h5>Comments <%= answer.comments.count %> </h5>
+  <div class="container answers-comments">
+    <% answer.comments.each do |comment| %>
+      <li id="<%= comment.id %>">
+        <form method="comment" action='/comments/<%= comment.id %>/vote' class="inline">
+          <button type="submit" name="submit_param" value="submit_value" class="upvote-button">⬆</button>
+        </form>
+        <form method="comment" action='/comments/<%= comment.id %>/vote' class="inline">
+          <button type="submit" name="submit_param" value="submit_value" class="upvote-button">⬇</button>
+        </form>
+        <p>
+          <span class='Body'><%= comment.body %></span>
+          <span class='Body'><strong>Posted At:</strong> <%= comment.updated_at %></span>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+  </div>
+<% end %>
 </div>
